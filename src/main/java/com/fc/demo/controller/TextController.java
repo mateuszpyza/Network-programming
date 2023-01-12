@@ -10,13 +10,12 @@ import java.util.List;
 
 @RestController
 public class TextController {
-    @GetMapping("/sum")
-    public Integer getSum(@RequestParam List<Integer> integers) {
-        if (integers == null) {
-            return 0;
+    @GetMapping("/echo")
+    public String getEcho(@RequestParam String text) {
+        if (text == null) {
+            return null;
         }
-        System.out.println("Wysłana lista :" + integers);
-        return integers.stream().mapToInt(Integer::intValue).sum();
+        return text.toUpperCase();
     }
 
 

@@ -9,21 +9,12 @@ import java.net.http.HttpResponse;
 
 
 public class ClientMain {
-
-
     public static void main(String[] args) throws URISyntaxException, IOException, InterruptedException {
-        StringBuilder stringToSend = null;
-        for (int i = 1; i < 10; i++) {
-            if (i == 1) {
-                stringToSend = new StringBuilder("integers=" + 7);
-            }
-            stringToSend.append("&integers=").append(i * 2);
-        }
-        String sum = (getUrlContent("http://localhost:8080/sum?" + stringToSend));
-        System.out.println("Obliczona suma liczb wynosi: " + sum);
+        String stringToSend = "Network_Programing";
+        String sum = (getUrlContent("http://localhost:8080/echo?text=" + stringToSend));
+        System.out.println("A echo na to :" + sum);
 
     }
-
 
     public static String getUrlContent(String url) throws URISyntaxException, IOException, InterruptedException {
         HttpClient httpClient = HttpClient.newBuilder().build();
